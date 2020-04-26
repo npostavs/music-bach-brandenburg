@@ -1,7 +1,7 @@
 paper-size ?= $(shell cat /etc/papersize)
 
 LYFLAGS := -dpaper-size=\"$(paper-size)\"
-# LYFLAGS += -dno-point-and-click
+LYFLAGS += -dno-point-and-click
 
 .SUFFIXES:
 .SUFFIXES: .ly .pdf
