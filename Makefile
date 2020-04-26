@@ -17,8 +17,8 @@ $(foreach dir,$(dirs),$(eval include $(dir)/targets.mk))
 
 
 %.pdf : %.ly
-	lilypond $(LYFLAGS) $<
+	lilypond $(LYFLAGS) --output=$* --include=$(dir $<) $<
 
 clean :
-	find $(dirs) -name '*.pdf' -o -name '*.midi' -delete
+	find $(dirs) \( -name '*.pdf' -o -name '*.midi' \) -delete
 .PHONY : all clean
