@@ -3,5 +3,5 @@ parts := $(filter-out $(notparts),$(wildcard $(dir)/*.ly))
 
 $(foreach part,$(parts) $(dir)/score.ly,$(eval $(basename $(part)).pdf : $(part) $(dir)/notes.ly))
 
-$(eval $(dir)/all : $(addsuffix .pdf,$(basename $(parts))))
+$(eval $(dir)/all : $(addsuffix .pdf,$(basename $(parts) $(dir)/score.ly)))
 .PHONY: $(dir)/all
