@@ -1,4 +1,4 @@
-\version "2.10.20"
+\version "2.18.0"
 \include "definitions.ly"
 
 %Temporary line and page break definitions - only needed when entering music.
@@ -20,8 +20,8 @@ endline = | { \nBreak }
 global = { }
 
 \header {
-  title = \markup \center-align { "Brandenburg Concerto No. 1" }
-  subtitle = \markup \center-align { "II - Adagio."}
+  title = \markup \center-column { "Brandenburg Concerto No. 1" }
+  subtitle = \markup \center-column { "II - Adagio."}
   composer = \markup { "Johann Sebastian Bach" }
   mutopiatitle = "Brandenburg Concerto No. 1 (Second Movement - Adagio)"
   mutopiacomposer = "BachJS"
@@ -34,15 +34,15 @@ global = { }
   maintainer = "Ben Stewart"
   maintainerEmail = "benjamin.james.stewart@gmail.com"
  footer = "Mutopia-2008/10/29-1577"
- tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-align { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Copyright © 2008. \hspace #0.5 Reference: \footer } } \line { \teeny \line { Licensed under the Creative Commons Attribution 3.0 (Unported) License, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/by/3.0" http://creativecommons.org/licenses/by/3.0 } } } }
+ tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Copyright © 2008. \hspace #0.5 Reference: \footer } } \line { \teeny \line { Licensed under the Creative Commons Attribution 3.0 (Unported) License, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/by/3.0" http://creativecommons.org/licenses/by/3.0 } } } }
   }
 
 %Formatting parameters.
 \paper {
-	between-system-space = 0.5\cm
-	between-system-padding = #0.5
+	obsolete-between-system-space = 0.5\cm  system-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)  score-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)
+	obsolete-between-system-padding = #0.5  system-system-spacing #'padding = #(/ obsolete-between-system-padding staff-space)  score-system-spacing #'padding = #(/ obsolete-between-system-padding staff-space)
 	%annotate-spacing = ##t
-	page-top-space = #1.5
+	obsolete-page-top-space = #1.5  top-system-spacing #'basic-distance = #(/ obsolete-page-top-space staff-space)
 	head-separation = #1.5
 	foot-separation = #1.5
 	bottom-margin = #2
@@ -742,7 +742,7 @@ music =  {
 		\tag #'score \tag #'CornoOnePart \new Staff { << 
 			\set Staff.midiInstrument = "french horn"  
 			\global \set Staff.instrumentName = \markup { 
-				\center-align {
+				\center-column {
 					 \hcenter-in # centerIndent  "Corno I." 
 				}
 		 	 } \CornoOneNotes >> 
@@ -751,7 +751,7 @@ music =  {
 		\tag #'score \tag #'CornoTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "french horn"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent  "Corno II." 
 				}
 		  	}\CornoTwoNotes >> 
@@ -760,7 +760,7 @@ music =  {
 		\tag #'score \tag #'OboeOnePart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent  "Oboe I." 
 				}
 			}\OboeOneNotes >> 
@@ -769,7 +769,7 @@ music =  {
 		\tag #'score \tag #'OboeTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Oboe II."
 				}
 			}\OboeTwoNotes >>
@@ -778,7 +778,7 @@ music =  {
 		 \tag #'score \tag #'OboeThreePart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Oboe III."
 				}
 			}\OboeThreeNotes >>
@@ -787,7 +787,7 @@ music =  {
 		\tag #'score \tag #'FagottoPart \new Staff { << 
 			\set Staff.midiInstrument = "bassoon"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Fagotto."
 				}
 			}\FagottoNotes >>
@@ -797,7 +797,7 @@ music =  {
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Violino" 
+					\center-column { \hcenter-in # centerIndent  "Violino" 
 						\line { \hcenter-in # centerIndent "piccolo." }
 					}
 				} 
@@ -808,7 +808,7 @@ music =  {
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Violino" 
+					\center-column { \hcenter-in # centerIndent  "Violino" 
 						\line { \hcenter-in # centerIndent "piccolo." }
 						\line { \hcenter-in # centerIndent "(in Eb)" }
 					}
@@ -820,7 +820,7 @@ music =  {
 		\tag #'score \tag #'ViolinoOnePart \new Staff { << 
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violino I."
 				}
 			}\ViolinoOneNotes >>
@@ -829,7 +829,7 @@ music =  {
 		\tag #'score \tag #'ViolinoTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violino II."
 				}
 			}\ViolinoTwoNotes >>
@@ -838,7 +838,7 @@ music =  {
 		\tag #'score \tag #'ViolaPart \new Staff { << 
 			\set Staff.midiInstrument = "viola"
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Viola."
 				}
 			}\ViolaNotes >>
@@ -847,7 +847,7 @@ music =  {
 		\tag #'score \tag #'VioloncelloPart \new Staff { << 
 			\set Staff.midiInstrument = "cello"
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violoncello."
 				}
 			}\VioloncelloNotes >>
@@ -857,7 +857,7 @@ music =  {
 			\set Staff.midiInstrument = "contrabass"
 			\global  \set Staff.instrumentName = \markup { 
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Continuo" 
+					\center-column { \hcenter-in # centerIndent  "Continuo" 
 						\line { \hcenter-in # centerIndent "e Violone" }
 						\line { \hcenter-in # centerIndent "grosso." }
 

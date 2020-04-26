@@ -1,6 +1,6 @@
 \include "english.ly"
 
-\version "2.10.29"
+\version "2.18.0"
 
 piano = \markup{\italic piano}
 pianoparen = \markup{\italic (piano)}
@@ -12,10 +12,10 @@ tasto = \markup{\italic \line{Tasto solo}}
 
 
 \header {
-  title = \markup \center-align { "Brandenburg Concerto No. 2" }
+  title = \markup \center-column { "Brandenburg Concerto No. 2" }
   composer = \markup { "Johann Sebastian Bach" }
   mutopiatitle = "Brandenburg Concerto No. 2"
-  subtitle = \markup{ \center-align { "BWV 1047"} }
+  subtitle = \markup{ \center-column { "BWV 1047"} }
   mutopiacomposer = "BachJS"
   mutopiaopus = "BWV 1047"
   mutopiainstrument = "Trumpet, Flute, Oboe, Violin, Violone, Viola, Violincello"
@@ -27,7 +27,7 @@ tasto = \markup{\italic \line{Tasto solo}}
   maintainerEmail = "andy.vaught@gmail.com"
 
  footer = "Mutopia-2009/06/13-1680"
- tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-align { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Reference: \footer } } \line { \teeny \line { This sheet music has been placed in the public domain by the typesetter, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/publicdomain" http://creativecommons.org/licenses/publicdomain } } } }
+ tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Reference: \footer } } \line { \teeny \line { This sheet music has been placed in the public domain by the typesetter, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/publicdomain" http://creativecommons.org/licenses/publicdomain } } } }
 }
 
 
@@ -209,8 +209,8 @@ Atromba = \new Voice { \relative c' {
 
 
 
-ucirc = #(ly:export (ly:wide-char->utf-8 #x00FB))
-agrave = #(ly:export (ly:wide-char->utf-8 #x00E0))
+ucirc = $(ly:wide-char->utf-8 #x00FB)
+agrave = $(ly:wide-char->utf-8 #x00E0)
 
 
 Aflute = \new Voice { \relative c' {
@@ -219,7 +219,7 @@ Aflute = \new Voice { \relative c' {
   \key f \major
   \set Staff.midiInstrument = "Flute"
   \set Staff.instrumentName =
-     \markup{\bold\center-align { Flauto.
+     \markup{\bold\center-column { Flauto.
      \line{(Fl{\hspace #-1.2 \ucirc \hspace #-1.2 }te \agrave bec.)} } }
 
   \partial 8*1 f'8
@@ -232,7 +232,7 @@ Aflute = \new Voice { \relative c' {
 %{ 4 %}  g[ f g a]  bf[ a bf a] g[ f e d] c[ bf a g]    
 %{ 5 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ bf a g]   
 %{ 6 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ d e f]    
-%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-|] 
+%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-!] 
 %{ 8 %}  bf16[( a) g( f)] c8 e \trill f[ e16 d] c[ bf a g]
 %{ 9 %}  f8 r r4 r2
 
@@ -258,7 +258,7 @@ Aflute = \new Voice { \relative c' {
 %{ 24 %}  d[ c d e]  f[ e f e]  d[ c b a g8]  c'
 %{ 25 %}  c-.  g-. g-. e-.  e c c c'
 %{ 26 %}  c g g e  e c c g'
-%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-|]
+%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-!]
 %{ 28 %}  f16[( e d c)] g8 b c4 r8 f
 %{ 29 %}  f r g r  a r r f
 
@@ -272,7 +272,7 @@ Aflute = \new Voice { \relative c' {
 %{ 35 %}  g8. f16  e[ d cs b]  a8. g16  f[ e d cs]
 %{ 36 %}  d8[ f16 e]  d8[ a'16 g]  f8 d'  a16[ g f e]
 %{ 37 %}  d8[ f16 e]  d8[ a'16 g]  f8 d'  a,16[ b cs d]
-%{ 38 %}  e[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-|]
+%{ 38 %}  e[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-!]
 
 % Page 7
 
@@ -301,7 +301,7 @@ Aflute = \new Voice { \relative c' {
 
 %{ 56 %}  bf8 r8 r4 r8 bf'_\forte bf f 
 %{ 57 %}  f d d bf  bf bf' bf f
-%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-|]
+%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-!]
 %{ 59 %}  ef16[( d c bf)]  f8 a8 bf4 r8 f'8
 %{ 60 %}  g16[ a g a]  a8.[ \trill g32 a]  bf8[ bf,16 c]  d[ ef g d]
 %{ 61 %}  g[ ef c ef]  a,[ c f ef]  d[ ef f d]  bf[ c d bf]
@@ -334,7 +334,7 @@ Aflute = \new Voice { \relative c' {
 
 % Page 12
 
-%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-|]
+%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-!]
 %{ 83 %}  c16[( bf) a( g)] d8 fs g4 r8 d
 %{ 84 %}  g16[ a bf a]  g[ a bf a]  g[ fs g a] bf[ c bf a]
 %{ 85 %}  g[ a bf a]  g[ a bf a]  g[ a g f]  e[ f e d]
@@ -378,7 +378,7 @@ Aflute = \new Voice { \relative c' {
 %{ 114 %}  g bf bf g  g e e c
 %{ 115 %}  f,[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ bf a g]
 %{ 116 %}  f8[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ d e f]
-%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-|]
+%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-!]
 %{ 118 %}  bf16[( a) g( f)] c8 e f4. \fermata
            \bar "|."
 \pageBreak
@@ -402,7 +402,7 @@ Aoboe = \new Voice { \relative c' {
 %{ 4 %}  g[ f g a]  bf[ a bf a] g[ f e d] c[ bf a g]
 %{ 5 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ bf a g]
 %{ 6 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ d e f]
-%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-|]
+%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-!]
 %{ 8 %}  bf16[( a) g( f)] c8 e \trill f[ e16 d] c[ bf a g]
 %{ 9 %}  f8 r r4 r2
 
@@ -428,7 +428,7 @@ Aoboe = \new Voice { \relative c' {
 %{ 24 %}  d[ c d e]  f[ e f e]  d[ c b a]  g[ f e d]
 %{ 25 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ f e d]
 %{ 26 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ a b c]
-%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-|]
+%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-!]
 %{ 28 %}  f16[( e d c)] g8 b c4 r8 f
 %{ 29 %}  d r  bf! r  c r  r c
 
@@ -442,7 +442,7 @@ Aoboe = \new Voice { \relative c' {
 %{ 35 %}  d8 b e b  cs4. \trill d16 e
 %{ 36 %}  f8 a, a f  f d d d'
 %{ 37 %}  d a a f  f[ d d] a''
-%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-|]
+%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-!]
 
 % Page 7
 
@@ -471,7 +471,7 @@ Aoboe = \new Voice { \relative c' {
 
 %{ 56 %}  d[ bf16 c]  d8 bf'  bf f f d
 %{ 57 %}  d bf bf bf'  bf[ f f] f
-%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-|]
+%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-!]
 %{ 59 %}  ef16[( d c bf)]  f8 a8 bf4 r4
 %{ 60 %}  r1
 %{ 61 %}  r1
@@ -529,7 +529,7 @@ Aoboe = \new Voice { \relative c' {
 % Page 14
 
 %{ 100 %}  e8[ e16 d]  e8[ c16 b]  a8[ a'16 gs]  a8 e
-%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-|]
+%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-!]
 %{ 102 %}  d16[( c b a)]  e8 gs a4  r8 f'
 %{ 103 %}  c[ a16 bf!]  c8[ a16 bf]  c8 f c f
 %{ 104 %}  c[ a16 bf]  c8[ a16 bf]  c8[ f c] f
@@ -548,7 +548,7 @@ Aoboe = \new Voice { \relative c' {
 %{ 114 %}  bf g g e  e e c c
 %{ 115 %}  f,[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ bf a g]
 %{ 116 %}  f8[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ d e f]
-%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-|]
+%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-!]
 %{ 118 %}  bf16[( a g f]) c8 e f4. \fermata
            \bar "|."
 \pageBreak
@@ -572,7 +572,7 @@ Aviolino = \new Voice { \relative c' {
 %{ 4 %}  g[ f g a]  bf[ a bf a] g[ f e d] c[ bf a g]
 %{ 5 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ bf a g]
 %{ 6 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ d e f]
-%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-|]
+%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-!]
 %{ 8 %}  bf16[( a) g( f)] c8 e \trill f4 r8 c
 %{ 9 %}  d16[ e d e]  e8.[ \trill d32 e]  f8[ f,16 g]  a[ bf c a]
 
@@ -598,7 +598,7 @@ Aviolino = \new Voice { \relative c' {
 %{ 24 %}  d[ c d e]  f[ e f e]  d[ c b a]  g[ f e d]
 %{ 25 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ f e d]
 %{ 26 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ a b c]
-%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-|]
+%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-!]
 %{ 28 %}  f16[( e) d( c)] g8 b c16[ d c bf]  a[ g f ef] 
 %{ 29 %}  d[ c bf a]  g[ c bf c]  a[ c d e]  f[ ef d c]
 
@@ -613,7 +613,7 @@ Aviolino = \new Voice { \relative c' {
 %{ 35 %}  e16[ d' e, d']  e,[ d' e, d']  e,[ cs' e, cs']  e,[ cs' e, cs']
 %{ 36 %}  d,8[ f'16 e]  d8[ a'16 g]  f8 d'  a16[ g f e]
 %{ 37 %}  d8[ f16 e]  d8[ a'16 g]  f8 d'  a,16[ b cs d]
-%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-|]
+%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-!]
 
 % Page 7
 
@@ -642,7 +642,7 @@ Aviolino = \new Voice { \relative c' {
 
 %{ 56 %}  bf f f d  d bf bf bf'
 %{ 57 %}  bf f f d  d[ bf bf] f'
-%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-|]
+%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-!]
 %{ 59 %}  ef16[( d) c( bf)]  f8 a \trill  bf[ a16 g]  f[ef d c]
 %{ 60 %}  bf[ ef bf ef]  c[ ef c ef]  d[ f d f]  d[ bf' d, bf']
 %{ 61 %}  c,[ bf' c, bf']  c,[ a' c, a']  bf8 bf, r d'
@@ -675,7 +675,7 @@ Aviolino = \new Voice { \relative c' {
 
 % Page 12
 
-%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-|]
+%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-!]
 %{ 83 %}  c16[( bf) a( g)] d8 fs g8[ f16 ef]  d[ c bf a]
 %{ 84 %}  g8 d bf d  g, d' bf d
 %{ 85 %}  g d bf d  g,4  r8 e''
@@ -700,7 +700,7 @@ Aviolino = \new Voice { \relative c' {
 % Page 14
 
 %{ 100 %}  e[ a16 gs]  a8 e  e[ c'16 b] c8 e,
-%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-|]
+%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-!]
 %{ 102 %}  d16[( c) b( a)]  e8 gs \trill a4  r8 f
 %{ 103 %}  c[ a16 bf]  c8[ a16 bf]  c8 f c f
 %{ 104 %}  c[ a16 bf]  c8[ a16 bf]  c8[ f c] f'
@@ -719,7 +719,7 @@ Aviolino = \new Voice { \relative c' {
 %{ 114 %}  e g g bf  bf g g c,
 %{ 115 %}  f,[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ bf a g]
 %{ 116 %}  f8[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ d e f]
-%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-|]
+%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-!]
 %{ 118 %}  bf16[( a) g( f]) c8 e f4. \fermata
            \bar "|."
 \pageBreak
@@ -733,7 +733,7 @@ AviolinoI = \new Voice { \relative c' {
   \key f \major
   \set Staff.midiInstrument = "Violin"
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violino I}
+        \markup{\bold\center-column{ \line{Violino I}
                                     \line{di ripieno.}}}
 
   \partial 8*1 f'8
@@ -746,7 +746,7 @@ AviolinoI = \new Voice { \relative c' {
 %{ 4 %}  g[ f g a]  bf[ a bf a] g[ f e d] c[ bf a g]
 %{ 5 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ bf a g]
 %{ 6 %}  f8[ a16 g] f8[ c'16 bf16] a8 f' c16[ d e f]
-%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-|]
+%{ 7 %}  g[ a bf g] a[ f c f] g[ a bf g] a[ f c'8-!]
 %{ 8 %}  bf16[( a) g( f)] c8 e \trill f4 r4
 %{ 9 %}  r1
 
@@ -772,7 +772,7 @@ AviolinoI = \new Voice { \relative c' {
 %{ 24 %}  d[ c d e]  f[ e f e]  d[ c b a]  g[ f e d]
 %{ 25 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ f e d]
 %{ 26 %}  c8[ e16 d]  c8[ g'16 f]  e8 c'  g16[ a b c]
-%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-|]
+%{ 27 %}  d16[ e f d]  e[ c g c] d[ e f d] e[ c g'8-!]
 %{ 28 %}  f16[( e) d( c)] g8 b  c4 r
 %{ 29 %}  r1
 
@@ -786,7 +786,7 @@ AviolinoI = \new Voice { \relative c' {
 %{ 35 %}  d cs
 %{ 36 %}  d8[ f16 e]  d8[ a'16 g]  f8 d'  a16[ g f e]
 %{ 37 %}  d8[ f16 e]  d8[ a'16 g]  f8 d'  a,16[ b cs d]
-%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-|]
+%{ 38 %}  e16[ f g e]  f[ d a d]  e[ f g e]  f[ d a'8-!]
 
 % Page 7
 
@@ -815,7 +815,7 @@ AviolinoI = \new Voice { \relative c' {
 
 %{ 56 %}  d8 r  r bf,16[ a]  bf8[ bf16 a]  bf8[ bf16 a]
 %{ 57 %}  bf8 r r  bf16[ a]  bf8[ bf16 a bf8]  f''_\forte
-%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-|]
+%{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-!]
 %{ 59 %}  ef16[( d) c( bf)]  f8 a \trill  bf4 r
 %{ 60 %}  r1
 %{ 61 %}  r
@@ -848,7 +848,7 @@ AviolinoI = \new Voice { \relative c' {
 
 % Page 12
 
-%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-|]
+%{ 82 %}  a[ bf c a]  bf[ g d g]  a[ bf c a]  bf[ g d'8-!]
 %{ 83 %}  c16[( bf) a( g)] d8 fs g8[ f16 ef]  d[ c bf a]
 %{ 84 %}  g8 d bf d  g, d' bf d
 %{ 85 %}  g d bf d  g,4  r4
@@ -873,7 +873,7 @@ AviolinoI = \new Voice { \relative c' {
 % Page 14
 
 %{ 100 %}  a e e c  c a a e''
-%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-|]
+%{ 101 %}  b16[ c d b]  c[ a e a]  b[ c d b]  c[ a  e'8-!]
 %{ 102 %}  d16[( c) b( a)]  e8 gs  a4  r8 f
 %{ 103 %}  c[ a16 bf]  c8[ a16 bf]  c8 f c f
 %{ 104 %}  c[ a16 bf]  c8[ a16 bf]  c8[ f c] f'
@@ -892,7 +892,7 @@ AviolinoI = \new Voice { \relative c' {
 %{ 114 %}  c
 %{ 115 %}  f8_\forte[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ bf a g]
 %{ 116 %}  f8[ a16 g]  f8 [ c'16 bf]  a8 f'  c16[ d e f]
-%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-|]
+%{ 117 %}  g[ a bf g]  a[ f c f]  g[ a bf g]  a[ f c'8-!]
 %{ 118 %}  bf16[( a) g( f]) c8 e f4. \fermata
            \bar "|."
 \pageBreak
@@ -906,7 +906,7 @@ AviolinoII = \new Voice { \relative c' {
   \key f \major
   \set Staff.midiInstrument = "Violin"
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violino II}
+        \markup{\bold\center-column{ \line{Violino II}
                                \line{di ripieno.}}}
 
   \partial 8*1 c'8
@@ -1080,7 +1080,7 @@ Aviola = \new Voice { \relative c' {
   \set Staff.midiInstrument = "Viola"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Viola}
+        \markup{\bold\center-column{ \line{Viola}
                                     \line{di ripieno.}}}
 
   \partial 8*1 a'8
@@ -1241,7 +1241,7 @@ Aviolone = \new Voice { \relative c' {
   \set Staff.midiInstrument = "Violin"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violone}
+        \markup{\bold\center-column{ \line{Violone}
                                     \line{di ripieno.}}}
   \partial 8*1 f,,8
 
@@ -1401,7 +1401,7 @@ Avioloncello = \new Voice { \relative c' {
   \set Staff.midiInstrument = "Violincello"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{Violoncello
+        \markup{\bold\center-column{Violoncello
                                \line{e Cembalo}
                                \line{all' unisono.}}}
 
@@ -1535,7 +1535,7 @@ Avioloncello = \new Voice { \relative c' {
 %{ 102 %}  f d e e,  a4 r8 f'_\tasto
 %{ 103 %}  c[ a16 bf]  c8[ a16 bf]  c8 f c f
 %{ 104 %}  c[ a16 bf]  c8[ a16 bf]  c8[ f c]
-           a'^\markup{\bold\center-align{accomp. 6}}
+           a'^\markup{\bold\center-column{accomp. 6}}
 %{ 105 %}  e g c, f  e g c, a'
 %{ 106 %}  e g c, f  e16[ f e d]  c[ bf a g]
 %{ 107 %}  << { af8( af af af) } \figuremode{<6 4 2>} >> af( af af af)
@@ -1566,7 +1566,7 @@ Bflute = \new Voice { \relative c'' {
    \key f \major
    \set Staff.midiInstrument = "Flute"
    \set Staff.instrumentName =
-      \markup{\bold\center-align { Flauto.
+      \markup{\bold\center-column { Flauto.
                                    \line{(Flute a bec.)} } }
 
 % Page 16
@@ -1657,7 +1657,7 @@ Boboe = \new Voice { \relative c'' {
    \key f \major
    \set Staff.midiInstrument = "Oboe"
    \set Staff.instrumentName =
-      \markup{\bold\center-align { Oboe. }}
+      \markup{\bold\center-column { Oboe. }}
 
 % Page 16
 
@@ -1835,7 +1835,7 @@ Bvioloncello = \new Voice { \relative c {
   \set Staff.midiInstrument = "Cello"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{Violoncello
+        \markup{\bold\center-column{Violoncello
                                \line{e Cembalo.}}}
 
 % Page 16
@@ -2117,7 +2117,7 @@ Cflute = \new Voice { \relative c'' {
   \key f \major
   \set Staff.midiInstrument = "Flute"
   \set Staff.instrumentName =
-     \markup{\bold\center-align { Flauto.
+     \markup{\bold\center-column { Flauto.
                                  \line{(Flute a bec.)} } }
   \set Score.skipBars = ##t
 
@@ -2649,7 +2649,7 @@ CviolinoI = \new Voice { \relative c'' {
   \key f \major
   \set Staff.midiInstrument = "Violin"
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violino I}
+        \markup{\bold\center-column{ \line{Violino I}
                                     \line{di ripieno.}}}
   \set Score.skipBars = ##t
 
@@ -2837,7 +2837,7 @@ CviolinoII = \new Voice { \relative c'' {
   \key f \major
   \set Staff.midiInstrument = "Violin"
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violino II}
+        \markup{\bold\center-column{ \line{Violino II}
                                \line{di ripieno.}}}
   \set Score.skipBars = ##t
 
@@ -3027,7 +3027,7 @@ Cviola = \new Voice { \relative c'' {
   \set Staff.midiInstrument = "Viola"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Viola}
+        \markup{\bold\center-column{ \line{Viola}
                                     \line{di ripieno.}}}
   \set Score.skipBars = ##t
 
@@ -3216,7 +3216,7 @@ Cviolone = \new Voice { \relative c' {
   \set Staff.midiInstrument = "Violin"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{ \line{Violone}
+        \markup{\bold\center-column{ \line{Violone}
                                     \line{di ripieno.}}}
   \set Score.skipBars = ##t
 
@@ -3405,7 +3405,7 @@ Cvioloncello = \new Voice { \relative c {
   \set Staff.midiInstrument = "Violincello"
 
   \set Staff.instrumentName =
-        \markup{\bold\center-align{Violoncello
+        \markup{\bold\center-column{Violoncello
                                \line{e Cembalo}}}
 
 % Page 18

@@ -1,4 +1,4 @@
-\version "2.10.20"
+\version "2.18.0"
 \include "definitions.ly"
 
 %Include line and page breaks as per original score for the score only.
@@ -11,8 +11,8 @@ noTurnPage = { \tag #'score \noPageBreak }
 global = {}
 
 \header {
-  title = \markup \center-align { "Brandenburg Concerto No. 1" }
-  subtitle = \markup \center-align { "I - Allegro"}
+  title = \markup \center-column { "Brandenburg Concerto No. 1" }
+  subtitle = \markup \center-column { "I - Allegro"}
   composer = \markup { "Johann Sebastian Bach" }
   mutopiatitle = "Brandenburg Concerto No. 1 (First Movement - Allegro)"
   mutopiacomposer = "BachJS"
@@ -25,15 +25,15 @@ global = {}
   maintainer = "Ben Stewart"
   maintainerEmail = "benjamin.james.stewart@gmail.com"
  footer = "Mutopia-2008/10/09-1136"
- tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-align { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Copyright © 2008. \hspace #0.5 Reference: \footer } } \line { \teeny \line { Licensed under the Creative Commons Attribution 3.0 (Unported) License, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/by/3.0" http://creativecommons.org/licenses/by/3.0 } } } }
+ tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Copyright © 2008. \hspace #0.5 Reference: \footer } } \line { \teeny \line { Licensed under the Creative Commons Attribution 3.0 (Unported) License, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/by/3.0" http://creativecommons.org/licenses/by/3.0 } } } }
   }
 
 %Formatting parameters.
 \paper {
-	between-system-space = 0.5\cm
-	between-system-padding = #0.5
+	obsolete-between-system-space = 0.5\cm  system-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)  score-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)
+	obsolete-between-system-padding = #0.5  system-system-spacing #'padding = #(/ obsolete-between-system-padding staff-space)  score-system-spacing #'padding = #(/ obsolete-between-system-padding staff-space)
 	%annotate-spacing = ##t
-	page-top-space = #1.5
+	obsolete-page-top-space = #1.5  top-system-spacing #'basic-distance = #(/ obsolete-page-top-space staff-space)
 	head-separation = #1.5
 	foot-separation = #1.5
 	bottom-margin = #2
@@ -50,7 +50,7 @@ CornoOneNotes = \new Voice { \relative c'' {
   %Bars 1-4
   %{ Bar 1 %} R1 | \nBreak
   %{ Bar 2 %} r8 g c e g d d16 (g,) d'8 | \nBreak
-  %{ Bar 3 %} \times 2/3 {d8 (d d)} d8. (g16) r2 | \nBreak
+  %{ Bar 3 %} \tuplet 3/2 {d8 (d d)} d8. (g16) r2 | \nBreak
   %{ Bar 4 %} R1 |  
   \mBreak
 
@@ -58,14 +58,14 @@ CornoOneNotes = \new Voice { \relative c'' {
   %{ Bar 5 %} R1 | \nBreak
   %{ Bar 6 %} R1 | \nBreak
   %{ Bar 7 %} R1 | \nBreak
-  %{ Bar 8 %} r2 r8 g,8 \times 2/3 { g8 (g g) } | \nBreak
-  %{ Bar 9 %} \times 2/3 { g (c, g') } \times 2/3 { g (g g) } g8. (c16) r4 |
+  %{ Bar 8 %} r2 r8 g,8 \tuplet 3/2 { g8 (g g) } | \nBreak
+  %{ Bar 9 %} \tuplet 3/2 { g (c, g') } \tuplet 3/2 { g (g g) } g8. (c16) r4 |
   \mBreak
 
   %Bars 10 -13
   %{ Bar 10 %} R1 | \nBreak
   %{ Bar 11 %} R1 | \nBreak
-  %{ Bar 12 %} r8 g8 \times 2/3 { c (c c) } \times 2/3 { c (g c) } \times 2/3 { g (e g=') } | \nBreak
+  %{ Bar 12 %} r8 g8 \tuplet 3/2 { c (c c) } \tuplet 3/2 { c (g c) } \tuplet 3/2 { g (e g=') } | \nBreak
   %{ Bar 13 %}  e8 g'16 f g f g f e f g a f e f d='' | 
   \mBreak 
 
@@ -172,7 +172,7 @@ CornoOneNotes = \new Voice { \relative c'' {
   %{ Bar 71 %} b16 a b a b c a b c f, e d d8. c=''16 | \nBreak
   %{ Bar 72 %} c=''4 r4 r2 | \nBreak
   %{ Bar 73 %} r8 g8 c e g d d16 (g,) d'=''8 | \nBreak
-  %{ Bar 74 %} \times 2/3 {d8 (d d)} d8. (g=''16) r2 |
+  %{ Bar 74 %} \tuplet 3/2 {d8 (d d)} d8. (g=''16) r2 |
   \mBreak 
 
   %Bars 75-79
@@ -180,15 +180,15 @@ CornoOneNotes = \new Voice { \relative c'' {
   %{ Bar 76 %} R1 | \nBreak
   %{ Bar 77 %} R1 | \nBreak
   %{ Bar 78 %} R1 | \nBreak
-  %{ Bar 79 %} r2 r8 g,8 \times 2/3 {g8 (g g=')} |
+  %{ Bar 79 %} r2 r8 g,8 \tuplet 3/2 {g8 (g g=')} |
   \mBreak
 
   %Bars 80-84
-  %{ Bar 80 %} \times 2/3 {g8 (c, g')} \times 2/3 {g (g g)} g8. (c=''16) r4 | \nBreak
+  %{ Bar 80 %} \tuplet 3/2 {g8 (c, g')} \tuplet 3/2 {g (g g)} g8. (c=''16) r4 | \nBreak
   %{ Bar 81 %} R1 | \nBreak
   %{ Bar 82 %} R1 | \nBreak
-  %{ Bar 83 %} r8 g8 \times 2/3 {c (c c)} \times 2/3 {c (g c)} \times 2/3 {g (e g=')} | \nBreak
-  %{ Bar 84 %} \times 2/3 {e (e e)} \times 2/3 {e (e e)} e2\fermata |
+  %{ Bar 83 %} r8 g8 \tuplet 3/2 {c (c c)} \tuplet 3/2 {c (g c)} \tuplet 3/2 {g (e g=')} | \nBreak
+  %{ Bar 84 %} \tuplet 3/2 {e (e e)} \tuplet 3/2 {e (e e)} e2\fermata |
   \mBreak
   
   \bar "|."
@@ -206,7 +206,7 @@ CornoTwoNotes = \new Voice { \relative c'' {
 
   %Bars 1-4
   %{ Bar 1 %} r8 c,8 e g c g e16 c g'='8 | \nBreak
-  %{ Bar 2 %} \times 2/3 { g8 (g g) } \times 2/3 { g8 (g g) } g8. (d'=''16) r4 | \nBreak
+  %{ Bar 2 %} \tuplet 3/2 { g8 (g g) } \tuplet 3/2 { g8 (g g) } g8. (d'=''16) r4 | \nBreak
   %{ Bar 3 %} R1 | \nBreak
   %{ Bar 4 %} R1 |
   \mBreak
@@ -216,13 +216,13 @@ CornoTwoNotes = \new Voice { \relative c'' {
   %{ Bar 6 %} R1 | \nBreak
   %{ Bar 7 %} R1 | \nBreak
   %{ Bar 8 %} R1 | \nBreak
-  %{ Bar 9 %} r2 r8 c,8 \times 2/3 { c8 (c c=') } |
+  %{ Bar 9 %} r2 r8 c,8 \tuplet 3/2 { c8 (c c=') } |
   \mBreak
 
   %Bars 10-13
-  %{ Bar 10 %} \times 2/3 { c8 (g c) } \times 2/3 { c (c c) } c8. (g'='16) r4 | \nBreak
+  %{ Bar 10 %} \tuplet 3/2 { c8 (g c) } \tuplet 3/2 { c (c c) } c8. (g'='16) r4 | \nBreak
   %{ Bar 11 %} r2 r4 r8 g='8 | \nBreak
-  %{ Bar 12 %} \times 2/3 { c8 (c c) } \times 2/3 { c (g c) } \times 2/3 { g (e g) } \times 2/3 { e (c e=') } | \nBreak
+  %{ Bar 12 %} \tuplet 3/2 { c8 (c c) } \tuplet 3/2 { c (g c) } \tuplet 3/2 { g (e g) } \tuplet 3/2 { e (c e=') } | \nBreak
   %{ Bar 13 %} c8 e'16 d e d e d c d e f d8 g,=' |
   \mBreak
 
@@ -328,7 +328,7 @@ CornoTwoNotes = \new Voice { \relative c'' {
   %Bars 71-74
   %{ Bar 71 %}  d16 c d c d e c d e8 c, e g=' | \nBreak
   %{ Bar 72 %}  e8 c e g c g e16 c g'='8 | \nBreak
-  %{ Bar 73 %}  \times 2/3 { g8 (g g) } \times 2/3 { g (g g) } g8. (d'=''16) r4 | \nBreak
+  %{ Bar 73 %}  \tuplet 3/2 { g8 (g g) } \tuplet 3/2 { g (g g) } g8. (d'=''16) r4 | \nBreak
   %{ Bar 74 %}  R1 |
   \mBreak
 
@@ -341,11 +341,11 @@ CornoTwoNotes = \new Voice { \relative c'' {
   \mBreak
 
   %Bars 80-84
-  %{ Bar 80 %} r2 r8 c,8 \times 2/3 { c8 (c c) } | \nBreak
-  %{ Bar 81 %} \times 2/3 { c (g c) } \times 2/3 { c (c c) } c8. g'='16 r4 | \nBreak
+  %{ Bar 80 %} r2 r8 c,8 \tuplet 3/2 { c8 (c c) } | \nBreak
+  %{ Bar 81 %} \tuplet 3/2 { c (g c) } \tuplet 3/2 { c (c c) } c8. g'='16 r4 | \nBreak
   %{ Bar 82 %} r2 r4 r8 g='8 | \nBreak
-  %{ Bar 83 %} \times 2/3 { c (c c) } \times 2/3 { c (g c) } \times 2/3 { g (e g) } \times 2/3 { e (c e=') } | \nBreak
-  %{ Bar 84 %} \times 2/3 { c (c c) } \times 2/3 { c (c c) } c2\fermata |
+  %{ Bar 83 %} \tuplet 3/2 { c (c c) } \tuplet 3/2 { c (g c) } \tuplet 3/2 { g (e g) } \tuplet 3/2 { e (c e=') } | \nBreak
+  %{ Bar 84 %} \tuplet 3/2 { c (c c) } \tuplet 3/2 { c (c c) } c2\fermata |
   \mBreak
 
   \bar "|."  
@@ -2072,7 +2072,7 @@ music =  {
 		\tag #'score \tag #'CornoOnePart \new Staff { << 
 			\set Staff.midiInstrument = "french horn"  
 			\global \set Staff.instrumentName = \markup { 
-				\center-align {
+				\center-column {
 					 \hcenter-in # centerIndent  "Corno I." 
 				}
 		 	 } \CornoOneNotes >> 
@@ -2081,7 +2081,7 @@ music =  {
 		\tag #'score \tag #'CornoTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "french horn"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent  "Corno II." 
 				}
 		  	}\CornoTwoNotes >> 
@@ -2090,7 +2090,7 @@ music =  {
 		\tag #'score \tag #'OboeOnePart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent  "Oboe I." 
 				}
 			}\OboeOneNotes >> 
@@ -2099,7 +2099,7 @@ music =  {
 		\tag #'score \tag #'OboeTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Oboe II."
 				}
 			}\OboeTwoNotes >>
@@ -2108,7 +2108,7 @@ music =  {
 		 \tag #'score \tag #'OboeThreePart \new Staff { << 
 			\set Staff.midiInstrument = "oboe"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Oboe III."
 				}
 			}\OboeThreeNotes >>
@@ -2117,7 +2117,7 @@ music =  {
 		\tag #'score \tag #'FagottoPart \new Staff { << 
 			\set Staff.midiInstrument = "bassoon"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Fagotto."
 				}
 			}\FagottoNotes >>
@@ -2127,7 +2127,7 @@ music =  {
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Violino" 
+					\center-column { \hcenter-in # centerIndent  "Violino" 
 						\line { \hcenter-in # centerIndent "piccolo." }
 					}
 				} 
@@ -2138,7 +2138,7 @@ music =  {
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Violino" 
+					\center-column { \hcenter-in # centerIndent  "Violino" 
 						\line { \hcenter-in # centerIndent "piccolo." }
 						\line { \hcenter-in # centerIndent "(in Eb)" }
 					}
@@ -2150,7 +2150,7 @@ music =  {
 		\tag #'score \tag #'ViolinoOnePart \new Staff { << 
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violino I."
 				}
 			}\ViolinoOneNotes >>
@@ -2159,7 +2159,7 @@ music =  {
 		\tag #'score \tag #'ViolinoTwoPart \new Staff { << 
 			\set Staff.midiInstrument = "violin"  
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violino II."
 				}
 			}\ViolinoTwoNotes >>
@@ -2168,7 +2168,7 @@ music =  {
 		\tag #'score \tag #'ViolaPart \new Staff { << 
 			\set Staff.midiInstrument = "viola"
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Viola."
 				}
 			}\ViolaNotes >>
@@ -2177,7 +2177,7 @@ music =  {
 		\tag #'score \tag #'VioloncelloPart \new Staff { << 
 			\set Staff.midiInstrument = "cello"
 			\global \set Staff.instrumentName = \markup {
-				\center-align {
+				\center-column {
 					\hcenter-in # centerIndent "Violoncello."
 				}
 			}\VioloncelloNotes >>
@@ -2187,7 +2187,7 @@ music =  {
 			\set Staff.midiInstrument = "contrabass"
 			\global  \set Staff.instrumentName = \markup { 
 				\column { 
-					\center-align { \hcenter-in # centerIndent  "Continuo" 
+					\center-column { \hcenter-in # centerIndent  "Continuo" 
 						\line { \hcenter-in # centerIndent "e Violone" }
 						\line { \hcenter-in # centerIndent "grosso." }
 
