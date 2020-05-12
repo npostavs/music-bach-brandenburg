@@ -303,7 +303,7 @@ Aflute = \new Voice { \relative c' {
 %{ 57 %}  f d d bf  bf bf' bf f
 %{ 58 %}  c16[ d ef c]  d[ bf f bf]  c[ d ef c]  d[ bf f'8-!]
 %{ 59 %}  ef16[( d c bf)]  f8 a8 bf4 r8 f'8
-%{ 60 %}  g16[ a g a]  a8.[ \trill g32 a]  bf8[ bf,16 c]  d[ ef g d]
+%{ 60 %}  g16[ a g a]  a8.[ \trill g32 a]  bf8[ bf,16 c]  d[ ef f d]
 %{ 61 %}  g[ ef c ef]  a,[ c f ef]  d[ ef f d]  bf[ c d bf]
 %{ 62 %}  g[ c g c]  a[ c a c]  bf[ d bf d]  bf[ g' bf, g']
 %{ 63 %}  a,[ g' a, g']  a,[ fs' a, fs'] g8 g, r bf'
